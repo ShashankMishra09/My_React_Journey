@@ -1,7 +1,7 @@
-import keyConceptsImage from './assets/images/key-concepts.png';
 import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
+import Header from './Header';
 
 const concepts = [
   {
@@ -27,17 +27,17 @@ const concepts = [
 function App() {
   return (
     <div>
-      <header>
-        <img src={keyConceptsImage} alt="Medal badge with a star" />
-        <h1>Key React Concepts</h1>
-        <p>Selected key React concepts you should know about</p>
-      </header>
+      <Header />
       <ul id="concepts">
-        <li className="concept">
-          <img src="TODO: IMAGE" alt="TODO: TITLE" />
-          <h2>TODO: TITLE</h2>
-          <p>TODO: DESCRIPTION</p>
-        </li>
+        {concepts.map(concept=>
+          <li className="concept">
+            <img src={concept.image} alt={concept.title} />
+            <h2>{concept.title}</h2>
+            <p>{concept.description}</p>
+          </li>
+          
+        )}
+
       </ul>
     </div>
   );
